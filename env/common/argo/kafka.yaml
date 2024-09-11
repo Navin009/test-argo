@@ -7,7 +7,7 @@ spec:
     namespace: kafka
     server: https://kubernetes.default.svc
   source:
-    path: env/common/kakfa
+    path: env/common/kafka
     repoURL: https://github.com/Navin009/test-argo.git
     targetRevision: HEAD
   sources: []
