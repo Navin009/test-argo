@@ -3,16 +3,14 @@ kind: Application
 metadata:
   name: kafka
 spec:
-  destination:
-    namespace: kafka
-    server: https://kubernetes.default.svc
-  source:
-    path: env/common/kafka
-    repoURL: https://github.com/Navin009/test-argo.git
-    targetRevision: HEAD
-  sources: []
   project: default
+  source:
+    repoURL: https://github.com/Navin009/test-argo.git
+    path: env/common/kafka
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kafka
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
