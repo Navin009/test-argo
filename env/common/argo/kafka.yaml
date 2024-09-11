@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kakfa
+spec:
+  destination:
+    namespace: kafka
+    server: https://kubernetes.default.svc
+  source:
+    path: env/common/kakfa
+    repoURL: https://github.com/Navin009/test-argo.git
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
