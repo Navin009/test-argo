@@ -1,26 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ok
+  name: guestbook
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
   - list:
       elements:
-        - name: prod-applications
-          path: prod
-        - name: uat-applications
-          path: uat
-        - name: common-applications
-          path: common
+      - cluster: engineering-dev
+        url: https://1.2.3.4
+      - cluster: engineering-prod
+        url: https://2.4.6.8
+      - cluster: finance-preprod
+        url: https://9.8.7.6
   template:
     metadata:
-      name: ok-{{.name}}
+      name: '{{.cluster}}-guestbook'
     spec:
-      project: default
+      project: my-project
       source:
-        repoURL: https://github.com/Navin009/test-argo.git
+        repoURL: https://github.com/infra-team/cluster-deployments.git
         targetRevision: HEAD
-        path: env/{{.path}}/argo
+        path: guestbook/{{.cluster}}
       destination:
-        server: 'https://kubernetes.default.svc'
-        namespace: default
+        server: '{{.url}}'
+        namespace: guestbook
