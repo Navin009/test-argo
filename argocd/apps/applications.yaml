@@ -14,13 +14,13 @@ spec:
           path: common
   template:
     metadata:
-      name: '{{name}}'
+      name: ok-{{.name}}
     spec:
       project: default
       source:
         repoURL: https://github.com/Navin009/test-argo.git
         targetRevision: HEAD
-        path: env/{{path}}/argo
+        path: env/{{.path}}/argo
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: default
