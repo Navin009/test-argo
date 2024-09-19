@@ -9,11 +9,11 @@ spec:
   - list:
       elements:
         - name: prod-applications
-          path: env/prod/argo
+          path: prod
         - name: uat-applications
-          path: env/uat/argo
+          path: uat
         - name: common-applications
-          path: env/common/argo
+          path: common
   template:
     metadata:
       name: '{{.name}}'
@@ -22,6 +22,6 @@ spec:
       source:
         repoURL: https://github.com/Navin009/test-argo.git
         targetRevision: HEAD
-        path: '{{.path}}'
+        path: env/'{{path}}'/argo
       destination:
         server: 'https://kubernetes.default.svc'
