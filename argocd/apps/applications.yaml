@@ -25,3 +25,4 @@ spec:
         path: env/'{{path}}'/argo
       destination:
         server: 'https://kubernetes.default.svc'
+        namespace: default
