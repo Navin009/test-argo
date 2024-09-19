@@ -7,7 +7,7 @@ spec:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    path: env/prod/argo
+    path: env/prod/app
     repoURL: https://github.com/Navin009/test-argo.git
     targetRevision: HEAD
   sources: []

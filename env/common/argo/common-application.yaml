@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: common-applications
+  name: common-application
 spec:
   project: default
   source:
     repoURL: https://github.com/Navin009/test-argo.git
-    path: env/common/argo
+    path: env/common/app
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
