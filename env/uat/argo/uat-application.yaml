@@ -4,11 +4,9 @@ metadata:
   name: uat-applications
 spec:
   destination:
-    namespace: argocd
     server: https://kubernetes.default.svc
   source:
     path: env/uat/app
     repoURL: https://github.com/Navin009/test-argo.git
     targetRevision: HEAD
-  sources: []
   project: default
