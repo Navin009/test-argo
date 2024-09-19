@@ -19,7 +19,7 @@ spec:
         namespace: common
   template:
     metadata:
-      name: '{{.name}}-guestbook'
+      name: '{{.name}}'
     spec:
       project: default
       source:
