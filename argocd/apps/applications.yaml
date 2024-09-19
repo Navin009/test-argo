@@ -10,13 +10,10 @@ spec:
       elements:
         - name: prod-applications
           path: env/prod/argo
-          namespace: prod
         - name: uat-applications
           path: env/uat/argo
-          namespace: uat
         - name: common-applications
           path: env/common/argo
-          namespace: common
   template:
     metadata:
       name: '{{.name}}'
