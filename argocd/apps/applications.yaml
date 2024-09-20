@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: ok
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
   - list:
       elements:
@@ -23,6 +25,6 @@ spec:
       source:
         repoURL: https://github.com/Navin009/test-argo.git
         targetRevision: HEAD
-        path: '{{.path}}'
+        path: './{{.path}}'
       destination:
         server: 'https://kubernetes.default.svc'
