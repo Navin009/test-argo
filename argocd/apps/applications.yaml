@@ -4,8 +4,8 @@ metadata:
   name: ok
 spec:
   generators:
-  - list:
-    - app: common
+    - list:
+        - app: common
   template:
     metadata:
       name: 'ok'
