@@ -3,28 +3,14 @@ kind: ApplicationSet
 metadata:
   name: ok
 spec:
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
-  generators:
-  - list:
-      elements:
-      - name: prod-applications
-        path: env/prod/argo
-        namespace: prod
-      - name: uat-applications
-        path: env/uat/argo
-        namespace: uat
-      - name: common-applications
-        path: env/common/argo
-        namespace: common
   template:
     metadata:
-      name: '{{.name}}'
+      name: 'test-app'
     spec:
       project: default
       source:
         repoURL: https://github.com/Navin009/test-argo.git
         targetRevision: HEAD
-        path: './{{.path}}'
+        path: 'env/common/argo'
       destination:
         server: 'https://kubernetes.default.svc'
