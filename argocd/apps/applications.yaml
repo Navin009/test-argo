@@ -3,14 +3,15 @@ kind: ApplicationSet
 metadata:
   name: ok
 spec:
+  generators:
   template:
     metadata:
-      name: 'test-app'
+      name: 'ok'
     spec:
       project: default
       source:
         repoURL: https://github.com/Navin009/test-argo.git
         targetRevision: HEAD
-        path: 'env/common/argo'
+        path: env/common/argo
       destination:
         server: 'https://kubernetes.default.svc'
