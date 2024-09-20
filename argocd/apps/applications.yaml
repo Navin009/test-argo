@@ -5,11 +5,11 @@ metadata:
 spec:
   generators:
     - list:
-      elements:
-        - app: common
+        elements:
+          - app: common
   template:
     metadata:
-      name: 'ok'
+      name: '{{app}}'
     spec:
       project: default
       source:
